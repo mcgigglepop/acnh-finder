@@ -33,3 +33,6 @@ go.work.sum
 
 acnh-finder-build
 node_modules
+.terraform.lock.hcl
+terraform.tfstate
+terraform/.terraform/*

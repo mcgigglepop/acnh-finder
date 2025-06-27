@@ -17,10 +17,6 @@ resource "aws_cognito_user_pool" "main" {
       priority = 1
     }
   }
-
-  lambda_config {
-    post_confirmation = aws_lambda_function.post_confirmation.arn
-  }
 }
 
 resource "aws_cognito_user_pool_client" "client" {
