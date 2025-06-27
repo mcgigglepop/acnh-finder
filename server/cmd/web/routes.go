@@ -28,6 +28,8 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Route("/", func(mux chi.Router) {
 		mux.Use(Auth) // if you want to apply auth just for these
 		mux.Get("/dashboard", handlers.Repo.DashboardGet)
+		mux.Get("/choose-hemisphere", handlers.Repo.ChooseHemisphereGet)
+		mux.Post("/choose-hemisphere", handlers.Repo.ChooseHemispherePost)
 	})
 
 	fileServer := http.FileServer(http.Dir("./static/"))

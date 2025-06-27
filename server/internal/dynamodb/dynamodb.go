@@ -48,3 +48,24 @@ func (c *DDBClient) GetUserProfile(ctx context.Context, userSub string) (*models
 
 	return &user, nil
 }
+
+func (c *DDBClient) UpdateUserHemisphere(ctx context.Context, userSub string, hemisphere string) error {
+	input := &sdkdynamodb.UpdateItemInput{
+		TableName: aws.String(c.tableName),
+		Key: map[string]types.AttributeValue{
+			"user_id": &types.AttributeValueMemberS{Value: userSub},
+		},
+		UpdateExpression:          aws.String("SET hemisphere = :h"),
+		ExpressionAttributeValues: map[string]types.AttributeValue{
+			":h": &types.AttributeValueMemberS{Value: hemisphere},
+		},
+		ReturnValues: types.ReturnValueUpdatedNew,
+	}
+
+	_, err := c.db.UpdateItem(ctx, input)
+	if err != nil {
+		return fmt.Errorf("failed to update hemisphere: %w", err)
+	}
+
+	return nil
+}

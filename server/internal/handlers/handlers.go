@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -70,10 +69,34 @@ func (m *Repository) DashboardGet(w http.ResponseWriter, r *http.Request) {
 		log.Printf("Couldn't fetch user: %v", err)
 		// redirect to error page or some default page
 	} else {
-		http.Redirect(w, r, fmt.Sprintf("/dashboard/%s", user.Hemisphere), http.StatusSeeOther)
+		if user.Hemisphere == "unset" {
+			http.Redirect(w, r, "/choose-hemisphere", http.StatusSeeOther)
+		}
 	}
 
 	render.Template(w, r, "dashboard.page.tmpl", &models.TemplateData{})
+}
+
+func (m *Repository) ChooseHemisphereGet(w http.ResponseWriter, r *http.Request) {
+	// Get the user_id (Cognito sub) from session
+	userSub := m.App.Session.GetString(r.Context(), "user_id")
+	if userSub == "" {
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		return
+	}
+
+	user, err := m.App.Dynamo.UserProfile.GetUserProfile(r.Context(), userSub)
+	if err != nil {
+		log.Printf("Couldn't fetch user: %v", err)
+		m.App.Session.Put(r.Context(), "flash", "something went wrong")
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
+	}
+
+	render.Template(w, r, "choose-hemisphere.page.tmpl", &models.TemplateData{
+		Data: map[string]interface{}{
+			"Hemisphere": user.Hemisphere,
+		},
+	})
 }
 
 //////////////////////////////////////////////////////////////
@@ -217,5 +240,43 @@ func (m *Repository) LoginPost(w http.ResponseWriter, r *http.Request) {
 	m.App.Session.Put(r.Context(), "refresh_token", auth_response.RefreshToken)
 
 	m.App.Session.Put(r.Context(), "flash", "login successfully.")
+	http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
+}
+
+func (m *Repository) ChooseHemispherePost(w http.ResponseWriter, r *http.Request) {
+	if err := m.App.Session.RenewToken(r.Context()); err != nil {
+		m.App.ErrorLog.Println("Session token renewal failed:", err)
+	}
+
+	err := r.ParseForm()
+	if err != nil {
+		m.App.ErrorLog.Println("ParseForm error:", err)
+	}
+
+	form := forms.New(r.PostForm)
+
+	if !form.Valid() {
+		render.Template(w, r, "choose-hemisphere.page.tmpl", &models.TemplateData{
+			Form: form,
+		})
+		return
+	}
+
+	hemisphere := r.Form.Get("hemisphere")
+	if hemisphere != "north" && hemisphere != "south" {
+		http.Error(w, "Invalid hemisphere selected", http.StatusBadRequest)
+		return
+	}
+
+	// Get the user_id (Cognito sub) from session
+	userSub := m.App.Session.GetString(r.Context(), "user_id")
+	if userSub == "" {
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		return
+	}
+
+	err = m.App.Dynamo.UserProfile.UpdateUserHemisphere(r.Context(), userSub, hemisphere)
+
+	m.App.Session.Put(r.Context(), "flash", "hemisphere confirmed")
 	http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
 }
