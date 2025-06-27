@@ -10,8 +10,7 @@ import (
 )
 
 type DynamoService struct {
-	Merch      *dynamodb.DDBClient
-	Collections *dynamodb.DDBClient
+	UserProfile      *dynamodb.DDBClient
 }
 
 // AppConfig holds the application config

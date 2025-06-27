@@ -100,7 +100,7 @@ func run() error {
 
 	// Set DynamoDB clients
 	app.Dynamo = &config.DynamoService{
-		Merch:       dynamodb.NewAppClient(awsCfg, "TABLE_NAME"),
+		UserProfile: dynamodb.NewAppClient(awsCfg, "UserProfiles"),
 	}
 
 	// Create template cache

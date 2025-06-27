@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -57,6 +58,21 @@ func (m *Repository) EmailVerificationGet(w http.ResponseWriter, r *http.Request
 }
 
 func (m *Repository) DashboardGet(w http.ResponseWriter, r *http.Request) {
+	// Get the user_id (Cognito sub) from session
+	userSub := m.App.Session.GetString(r.Context(), "user_id")
+	if userSub == "" {
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		return
+	}
+
+	user, err := m.App.Dynamo.UserProfile.GetUserProfile(r.Context(), userSub)
+	if err != nil {
+		log.Printf("Couldn't fetch user: %v", err)
+		// redirect to error page or some default page
+	} else {
+		http.Redirect(w, r, fmt.Sprintf("/dashboard/%s", user.Hemisphere), http.StatusSeeOther)
+	}
+
 	render.Template(w, r, "dashboard.page.tmpl", &models.TemplateData{})
 }
 
