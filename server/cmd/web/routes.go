@@ -16,8 +16,6 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Use(NoSurf)
 	mux.Use(SessionLoad)
 
-	mux.Get("/", handlers.Repo.GetIndex)
-
 	mux.Get("/register", handlers.Repo.RegisterGet)
 	mux.Post("/register", handlers.Repo.RegisterPost)
 	

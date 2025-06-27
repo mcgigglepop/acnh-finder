@@ -37,10 +37,6 @@ func NewHandlers(r *Repository) {
 // ////////////////////////////////////////////////////////////
 // ////////////////////////////////////////////////////////////
 
-func (m *Repository) GetIndex(w http.ResponseWriter, r *http.Request) {
-	render.Template(w, r, "index.page.tmpl", &models.TemplateData{})
-}
-
 func (m *Repository) LoginGet(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "login.page.tmpl", &models.TemplateData{})
 }
@@ -64,86 +60,11 @@ func (m *Repository) DashboardGet(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "dashboard.page.tmpl", &models.TemplateData{})
 }
 
-func (m *Repository) CollectionsGet(w http.ResponseWriter, r *http.Request) {
-	// Get the user_id (Cognito sub) from session
-	userSub := m.App.Session.GetString(r.Context(), "user_id")
-	if userSub == "" {
-		http.Redirect(w, r, "/login", http.StatusSeeOther)
-		return
-	}
-
-	// Fetch collections for the user from DynamoDB
-	collections, err := m.App.Dynamo.Collections.GetCollectionsByUser(r.Context(), userSub)
-	if err != nil {
-		m.App.ErrorLog.Println("Error fetching collections:", err)
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-
-	// Render the collections template
-	render.Template(w, r, "collections.page.tmpl", &models.TemplateData{
-		Data: map[string]interface{}{
-			"Collections": collections,
-		},
-	})
-}
-
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 ///////////////////// POST REQUESTS //////////////////////////
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
-
-func (m *Repository) CreateCollectionPost(w http.ResponseWriter, r *http.Request) {
-	// Renew the session token (useful for rotation and session security)
-	if err := m.App.Session.RenewToken(r.Context()); err != nil {
-		m.App.ErrorLog.Println("Session token renewal failed:", err)
-	}
-
-	// Parse the incoming form data
-	err := r.ParseForm()
-	if err != nil {
-		m.App.ErrorLog.Println("ParseForm error:", err)
-	}
-
-	// Wrap form data for validation
-	form := forms.New(r.PostForm)
-	form.Required("title")
-
-	// If form validation fails, re-render the page
-	if !form.Valid() {
-		m.App.ErrorLog.Println("form validation failed")
-		render.Template(w, r, "create-collection.page.tmpl", &models.TemplateData{
-			Form: form,
-		})
-		return
-	}
-
-	// Clean input values
-	collectionTitle := r.Form.Get("title")
-	collectionDescription := r.Form.Get("description")
-
-	// Retrieve user ID from session
-	userID := m.App.Session.GetString(r.Context(), "user_id")
-	if userID == "" {
-		m.App.ErrorLog.Println("invalid user session")
-		http.Redirect(w, r, "/login", http.StatusSeeOther)
-		return
-	}
-
-	// create collection
-	err = m.App.Dynamo.Collections.CreateCollection(r.Context(), userID, collectionTitle, collectionDescription)
-	if err != nil {
-		m.App.ErrorLog.Println("error creating collection", err)
-		m.App.Session.Put(r.Context(), "error", "can't create collection")
-		http.Redirect(w, r, "/create-collection", http.StatusSeeOther)
-		return
-	}
-
-	// Flash and redirect
-	m.App.Session.Put(r.Context(), "flash", "Collection created successfully.")
-	http.Redirect(w, r, "/collections", http.StatusSeeOther)
-}
 
 func (m *Repository) RegisterPost(w http.ResponseWriter, r *http.Request) {
 	if err := m.App.Session.RenewToken(r.Context()); err != nil {
