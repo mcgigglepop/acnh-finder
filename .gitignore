@@ -35,4 +35,6 @@ acnh-finder-build
 node_modules
 .terraform.lock.hcl
 terraform.tfstate
+terraform.tfstate.backup
 terraform/.terraform/*
+*.zip
