@@ -370,7 +370,7 @@ func main() {
 				{Start: "00:00", End: "23:59"},
 			},
 			MonthsNorth: []int{1, 2, 12},
-			MonthsSouth: []int{6, 7, 8,},
+			MonthsSouth: []int{6, 7, 8},
 		},
 		{
 			FishID:     "26-sweetfish",
@@ -828,7 +828,7 @@ func main() {
 			SellPrice:  3000,
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
-			Location:   "sea",
+			Location:   "Sea",
 			TimeRanges: []models.TimeRange{
 				{Start: "00:00", End: "23:59"},
 			},
@@ -886,7 +886,7 @@ func main() {
 			ShadowIcon: "/static/images/fish/icons/shadow-long-and-thin.png",
 			Location:   "Sea",
 			TimeRanges: []models.TimeRange{
-				{Start: "10:00", End: "23:59"},
+				{Start: "00:00", End: "23:59"},
 			},
 			MonthsNorth: []int{8, 9, 10},
 			MonthsSouth: []int{2, 3, 4},
@@ -914,10 +914,10 @@ func main() {
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "Pier",
 			TimeRanges: []models.TimeRange{
-				{Start: "10:00", End: "23:59"},
+				{Start: "00:00", End: "23:59"},
 			},
 			MonthsNorth: []int{1, 2, 3, 4, 11, 12},
-			MonthsSouth: []int{5, 6, 7, 8, 9, 10, },
+			MonthsSouth: []int{5, 6, 7, 8, 9, 10},
 		},
 		{
 			FishID:     "67-blue-marlin",
@@ -984,7 +984,7 @@ func main() {
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
 			TimeRanges: []models.TimeRange{
-				{Start: "04:00", End: "09:00"},
+				{Start: "04:00", End: "21:00"},
 			},
 			MonthsNorth: []int{8, 9, 10, 11},
 			MonthsSouth: []int{2, 3, 4, 5},
@@ -1048,7 +1048,7 @@ func main() {
 		{
 			FishID:     "76-suckerfish",
 			Name:       "Suckerfish",
-			Icon:       "/static/images/fish/icons/sucker-fish.png",
+			Icon:       "/static/images/fish/icons/suckerfish.png",
 			SellPrice:  1500,
 			ShadowSize: "Very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
