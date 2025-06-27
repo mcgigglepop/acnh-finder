@@ -7,3 +7,7 @@ module "cognito" {
   user_pool_name = "${var.application_name}-user-pool"
   region = var.region
 }
+
+module "dynamodb" {
+  source         = "./modules/dynamodb"
+}
