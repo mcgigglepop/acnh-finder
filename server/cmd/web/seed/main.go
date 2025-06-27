@@ -30,11 +30,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 11, 12},
-			MonthsSouth: []int{5, 6, 7, 8, 9},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "2-pale-chub",
@@ -44,11 +55,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "3-crucian-carp",
@@ -58,11 +80,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "4-dace",
@@ -72,11 +105,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "5-carp",
@@ -86,11 +130,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "6-koi",
@@ -100,11 +155,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "7-goldfish",
@@ -114,11 +180,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "8-pop-eyed-goldfish",
@@ -128,11 +205,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "9-ranchu-goldfish",
@@ -142,11 +230,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "10-killifish",
@@ -156,11 +255,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8},
-			MonthsSouth: []int{1, 2, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "11-crawfish",
@@ -170,11 +280,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "12-soft-shelled-turtle",
@@ -184,11 +305,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{8, 9},
-			MonthsSouth: []int{2, 3},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{2, 3},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "13-snapping-turtle",
@@ -198,11 +330,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "21:00", End: "04:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "14-tadpole",
@@ -212,11 +355,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 6, 7},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{3, 4, 5, 6, 7},
-			MonthsSouth: []int{1, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "15-frog",
@@ -226,11 +380,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8},
-			MonthsSouth: []int{1, 2, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "16-freshwater-goby",
@@ -240,11 +405,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "17-loach",
@@ -254,11 +430,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{3, 4, 5},
-			MonthsSouth: []int{9, 10, 11},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "18-catfish",
@@ -268,11 +455,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "19-giant-snakehead",
@@ -282,11 +480,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8},
-			MonthsSouth: []int{1, 2, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "20-bluegill",
@@ -296,11 +505,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "21-yellow-perch",
@@ -310,11 +530,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 10, 11, 12},
-			MonthsSouth: []int{4, 5, 6, 7, 8, 9},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "22-black-bass",
@@ -324,11 +555,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "23-tilapia",
@@ -338,11 +580,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "24-pike",
@@ -352,11 +605,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{9, 10, 11, 12},
-			MonthsSouth: []int{3, 4, 5, 6},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 6},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "25-pond-smelt",
@@ -366,11 +630,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 12},
-			MonthsSouth: []int{6, 7, 8},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "26-sweetfish",
@@ -380,11 +655,96 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{7, 8, 9},
-			MonthsSouth: []int{1, 2, 3},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
+		},
+		{
+			FishID:     "27-cherry-salmon",
+			Name:       "Cherry Salmon",
+			Icon:       "/static/images/fish/icons/cherry-salmon.png",
+			SellPrice:  1000,
+			ShadowSize: "Medium",
+			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
+			Location:   "River (Clifftop)",
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 6},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+				{
+					Months: []int{9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+				{
+					Months: []int{9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
+		},
+		{
+			FishID:     "28-char",
+			Name:       "Char",
+			Icon:       "/static/images/fish/icons/char.png",
+			SellPrice:  3800,
+			ShadowSize: "Medium",
+			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
+			Location:   "River (Clifftop)",
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 6},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+				{
+					Months: []int{9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+				{
+					Months: []int{9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "29-golden-trout",
@@ -394,11 +754,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "River (Clifftop)",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{3, 4, 5, 9, 10, 11},
-			MonthsSouth: []int{3, 4, 5, 9, 10, 11},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "30-stringfish",
@@ -408,11 +779,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "River (Clifftop)",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 12},
-			MonthsSouth: []int{6, 7, 8, 9},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "31-salmon",
@@ -422,11 +804,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "River (Mouth)",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{9},
-			MonthsSouth: []int{3},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "32-king-salmon",
@@ -436,11 +829,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "River (Mouth)",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{9},
-			MonthsSouth: []int{3},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "33-mitten-crab",
@@ -450,11 +854,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{9, 10, 11},
-			MonthsSouth: []int{3, 4, 5},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "34-guppy",
@@ -464,11 +879,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9, 10, 11},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "35-nibble-fish",
@@ -478,11 +904,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "36-angelfish",
@@ -492,11 +929,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "37-betta",
@@ -506,11 +954,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "38-neon-tetra",
@@ -520,11 +979,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9, 10, 11},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "39-rainbowfish",
@@ -534,11 +1004,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "40-piranha",
@@ -548,12 +1029,24 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "09:00", End: "16:00"},
-				{Start: "21:00", End: "04:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+						{Start: "21:00", End: "04:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "09:00", End: "16:00"},
+						{Start: "21:00", End: "04:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "41-arowana",
@@ -563,11 +1056,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "42-dorado",
@@ -577,11 +1081,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "04:00", End: "21:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "43-gar",
@@ -591,11 +1106,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Pond",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "44-arapaima",
@@ -605,11 +1131,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "45-saddled-bichir",
@@ -619,11 +1156,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "River",
-			TimeRanges: []models.TimeRange{
-				{Start: "21:00", End: "04:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "46-sturgeon",
@@ -633,11 +1181,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "River (Mouth)",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 9, 10, 11, 12},
-			MonthsSouth: []int{3, 4, 5, 6, 7, 8, 9},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "47-sea-butterfly",
@@ -647,11 +1206,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 12},
-			MonthsSouth: []int{6, 7, 8, 9},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "48-sea-horse",
@@ -661,11 +1231,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9, 10, 11},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "49-clown-fish",
@@ -675,11 +1256,22 @@ func main() {
 			ShadowSize: "Tiny",
 			ShadowIcon: "/static/images/fish/icons/shadow-tiny.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "50-surgeonfish",
@@ -689,11 +1281,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "51-butterfly-fish",
@@ -703,11 +1306,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "52-napoleonfish",
@@ -717,11 +1331,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "04:00", End: "21:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{7, 8},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{7, 8},
-			MonthsSouth: []int{1, 2},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "53-zebra-turkeyfish",
@@ -731,11 +1356,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{4, 5, 6, 7, 8, 9, 10, 11},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "54-blowfish",
@@ -745,11 +1381,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "21:00", End: "04:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 11, 12},
-			MonthsSouth: []int{5, 6, 7, 8},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "55-puffer-fish",
@@ -759,11 +1406,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{7, 8, 9},
-			MonthsSouth: []int{1, 2, 3},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "56-anchovy",
@@ -773,11 +1431,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "04:00", End: "21:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "57-horse-mackerel",
@@ -787,11 +1456,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "58-barred-knifejaw",
@@ -801,11 +1481,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{3, 4, 5, 6, 7, 8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{3, 4, 5, 6, 7, 8, 9, 10, 11},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "59-sea-bass",
@@ -815,11 +1506,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "60-red-snapper",
@@ -829,11 +1531,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "61-dab",
@@ -843,11 +1556,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 10, 11, 12},
-			MonthsSouth: []int{4, 5, 6, 7, 8, 9, 10},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{4, 5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "62-olive-flounder",
@@ -857,11 +1581,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "63-squid",
@@ -871,11 +1606,22 @@ func main() {
 			ShadowSize: "Medium",
 			ShadowIcon: "/static/images/fish/icons/shadow-medium.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 12},
-			MonthsSouth: []int{1, 2, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "64-moray-eel",
@@ -885,11 +1631,22 @@ func main() {
 			ShadowSize: "Long and Thin",
 			ShadowIcon: "/static/images/fish/icons/shadow-long-and-thin.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{8, 9, 10},
-			MonthsSouth: []int{2, 3, 4},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{2, 3, 4},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "65-ribbon-eel",
@@ -899,11 +1656,22 @@ func main() {
 			ShadowSize: "Long and Thin",
 			ShadowIcon: "/static/images/fish/icons/shadow-long-and-thin.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "66-tuna",
@@ -913,11 +1681,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "Pier",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 11, 12},
-			MonthsSouth: []int{5, 6, 7, 8, 9, 10},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "67-blue-marlin",
@@ -927,11 +1706,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "Pier",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 7, 8, 9, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 7, 8, 9, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 5, 6, 7, 8, 9, 10},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "68-giant-trevally",
@@ -941,11 +1731,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Pier",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "69-mahi-mahi",
@@ -955,11 +1756,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Pier",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9, 10},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{5, 6, 7, 8, 9, 10},
-			MonthsSouth: []int{1, 2, 3, 4, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "70-ocean-sunfish",
@@ -969,11 +1781,22 @@ func main() {
 			ShadowSize: "Very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "04:00", End: "21:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{7, 8, 9},
-			MonthsSouth: []int{1, 2, 3},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "71-ray",
@@ -983,11 +1806,22 @@ func main() {
 			ShadowSize: "Very Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "04:00", End: "21:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{8, 9, 10, 11},
-			MonthsSouth: []int{2, 3, 4, 5},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{2, 3, 4, 5},
+					TimeRanges: []models.TimeRange{
+						{Start: "04:00", End: "21:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "72-saw-shark",
@@ -997,11 +1831,22 @@ func main() {
 			ShadowSize: "very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "73-hammerhead-shark",
@@ -1011,11 +1856,22 @@ func main() {
 			ShadowSize: "Very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "74-great-white-shark",
@@ -1025,11 +1881,22 @@ func main() {
 			ShadowSize: "Very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "75-whale-shark",
@@ -1039,11 +1906,22 @@ func main() {
 			ShadowSize: "Very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "76-suckerfish",
@@ -1053,11 +1931,22 @@ func main() {
 			ShadowSize: "Very Large (Finned)",
 			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{6, 7, 8, 9},
-			MonthsSouth: []int{1, 2, 3, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "77-football-fish",
@@ -1067,11 +1956,22 @@ func main() {
 			ShadowSize: "Large",
 			ShadowIcon: "/static/images/fish/icons/shadow-large.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "16:00", End: "09:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 11, 12},
-			MonthsSouth: []int{5, 6, 7, 8, 9},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{5, 6, 7, 8, 9},
+					TimeRanges: []models.TimeRange{
+						{Start: "16:00", End: "09:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "78-oarfish",
@@ -1081,11 +1981,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 12},
-			MonthsSouth: []int{6, 7, 8, 9, 10, 11},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{6, 7, 8, 9, 10, 11},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "79-barreleye",
@@ -1095,11 +2006,22 @@ func main() {
 			ShadowSize: "Small",
 			ShadowIcon: "/static/images/fish/icons/shadow-small.png",
 			Location:   "Sea",
-			TimeRanges: []models.TimeRange{
-				{Start: "21:00", End: "04:00"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "21:00", End: "04:00"},
+					},
+				},
+			},
 		},
 		{
 			FishID:     "80-coelacanth",
@@ -1109,11 +2031,22 @@ func main() {
 			ShadowSize: "Huge",
 			ShadowIcon: "/static/images/fish/icons/shadow-huge.png",
 			Location:   "Sea (Raining)",
-			TimeRanges: []models.TimeRange{
-				{Start: "00:00", End: "23:59"},
+			NorthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
 			},
-			MonthsNorth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-			MonthsSouth: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+			SouthAvailability: []models.SeasonalAvailability{
+				{
+					Months: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+					TimeRanges: []models.TimeRange{
+						{Start: "00:00", End: "23:59"},
+					},
+				},
+			},
 		},
 	}
 
