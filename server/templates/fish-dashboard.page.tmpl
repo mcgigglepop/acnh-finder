@@ -1348,7 +1348,9 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
                 class="nav-collapse collapse show"
                 data-bs-parent="#navbarVerticalMenuPagesMenu"
               >
-                <a class="nav-link active" href="./users.html">Overview</a>
+                <a class="nav-link" href="/fish/all">All Fish</a>
+                <a class="nav-link" href="/fish/my-fish">My Fish</a>
+                <a class="nav-link active" href="/fish/filter">Filter Fish (month/day)</a>
               </div>
             </div>
             <!-- End Collapse -->
@@ -1580,7 +1582,7 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
             </ol>
           </nav>
 
-          <h1 class="page-header-title">Fish</h1>
+          <h1 class="page-header-title">Filter Fish</h1>
         </div>
         <!-- End Col -->
 
@@ -1589,19 +1591,25 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
       <!-- End Row -->
     </div>
     <!-- End Page Header -->
-
+    <div class="row">
+      <div class="col-sm-12 col-lg-12 mb-3 mb-lg-5">
+        <div class="alert alert-warning text-center" role="alert">
+        <span class="fw-semibold">Heads up!</span> You can filter and search for fish by month/day. Just select a day and time and then see which fish are available for you to catch. You can select which fish you have already caught by either checking the box next to each fish or selecting the "mark as caught" button.
+      </div>
+      </div>
+    </div>
     <!-- Stats -->
     <div class="row">
       <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
         <!-- Card -->
         <div class="card h-100">
           <div class="card-body">
-            <h6 class="card-subtitle mb-2">Total fish</h6>
+            <h6 class="card-subtitle mb-2">Total available fish</h6>
 
             <div class="row align-items-center gx-2">
               <div class="col">
-                <span class="js-counter display-4 text-dark">80</span>
-                <span class="text-body fs-5 ms-1">from 80</span>
+                <span class="js-counter display-4 text-dark available-fish-count">0</span>
+                <span class="text-body fs-5 ms-1">out of 80</span>
               </div>
               <!-- End Col -->
             </div>
@@ -5536,8 +5544,11 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
       const res = await fetch(`/fish/available?month=${month}&time=${time}`);
       const data = await res.json();
 
-      // 🧠 Update the fish count
+      // Update the fish count
       document.querySelector('.fish-count').textContent = data.caught_count;
+
+      // Update the fish count
+      document.querySelector('.available-fish-count').textContent = data.fish.length;
 
       // Get the DataTables instance (the one you already initialized)
       const datatable = HSCore.components.HSDatatables.getItem(0);

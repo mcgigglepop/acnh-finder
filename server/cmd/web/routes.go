@@ -34,7 +34,8 @@ func routes(app *config.AppConfig) http.Handler {
 
 	mux.Route("/fish", func(mux chi.Router) {
 		mux.Use(Auth) // if you want to apply auth just for these
-		mux.Get("/dashboard", handlers.Repo.FishDashboardGet)
+
+		mux.Get("/filter", handlers.Repo.FishFilterGet)
 		// New JSON API to fetch filtered fish
 		mux.Get("/available", handlers.Repo.GetAvailableFish)
 

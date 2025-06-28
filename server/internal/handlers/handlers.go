@@ -103,7 +103,7 @@ func (m *Repository) ChooseHemisphereGet(w http.ResponseWriter, r *http.Request)
 	})
 }
 
-func (m *Repository) FishDashboardGet(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) FishFilterGet(w http.ResponseWriter, r *http.Request) {
 	// Get the user_id (Cognito sub) from session
 	userHemisphere := m.App.Session.GetString(r.Context(), "user_hemisphere")
 	if userHemisphere == "" {
