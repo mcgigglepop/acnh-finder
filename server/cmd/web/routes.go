@@ -32,6 +32,13 @@ func routes(app *config.AppConfig) http.Handler {
 		mux.Post("/choose-hemisphere", handlers.Repo.ChooseHemispherePost)
 	})
 
+	mux.Route("/fish", func(mux chi.Router) {
+		mux.Use(Auth) // if you want to apply auth just for these
+		mux.Get("/dashboard", handlers.Repo.FishDashboardGet)
+		// New JSON API to fetch filtered fish
+		mux.Get("/available", handlers.Repo.GetAvailableFish)
+	})
+
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
 

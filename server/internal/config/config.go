@@ -10,7 +10,8 @@ import (
 )
 
 type DynamoService struct {
-	UserProfile      *dynamodb.DDBClient
+	UserProfile *dynamodb.DDBClient
+	Fish        *dynamodb.DDBClient
 }
 
 // AppConfig holds the application config
@@ -22,5 +23,5 @@ type AppConfig struct {
 	InProduction  bool
 	Session       *scs.SessionManager
 	CognitoClient *cognito.CognitoClient
-	Dynamo *DynamoService
+	Dynamo        *DynamoService
 }

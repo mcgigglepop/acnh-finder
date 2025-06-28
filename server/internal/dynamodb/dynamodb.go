@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
@@ -55,7 +56,7 @@ func (c *DDBClient) UpdateUserHemisphere(ctx context.Context, userSub string, he
 		Key: map[string]types.AttributeValue{
 			"user_id": &types.AttributeValueMemberS{Value: userSub},
 		},
-		UpdateExpression:          aws.String("SET hemisphere = :h"),
+		UpdateExpression: aws.String("SET hemisphere = :h"),
 		ExpressionAttributeValues: map[string]types.AttributeValue{
 			":h": &types.AttributeValueMemberS{Value: hemisphere},
 		},
@@ -68,4 +69,71 @@ func (c *DDBClient) UpdateUserHemisphere(ctx context.Context, userSub string, he
 	}
 
 	return nil
+}
+
+func containsInt(slice []int, val int) bool {
+	for _, v := range slice {
+		if v == val {
+			return true
+		}
+	}
+	return false
+}
+
+func isTimeInRange(current, start, end string) bool {
+	layout := "15:04"
+	now, _ := time.Parse(layout, current)
+	from, _ := time.Parse(layout, start)
+	to, _ := time.Parse(layout, end)
+
+	if from.Before(to) {
+		return now.After(from) && now.Before(to)
+	}
+	// Overnight wraparound
+	return now.After(from) || now.Before(to)
+}
+
+func isFishAvailable(seasons []models.SeasonalAvailability, month int, hour string) bool {
+	for _, s := range seasons {
+		if containsInt(s.Months, month) {
+			for _, tr := range s.TimeRanges {
+				if isTimeInRange(hour, tr.Start, tr.End) {
+					return true
+				}
+			}
+		}
+	}
+	return false
+}
+
+func (c *DDBClient) ListAvailableFish(ctx context.Context, month int, hour string, hemisphere string) ([]models.Fish, error) {
+	// 1. Scan all fish (yes, it’s a scan — live with it unless you cache)
+	out, err := c.db.Scan(ctx, &sdkdynamodb.ScanInput{
+		TableName: aws.String(c.tableName),
+	})
+	if err != nil {
+		return nil, fmt.Errorf("scan failed: %w", err)
+	}
+
+	var allFish []models.Fish
+	if err := attributevalue.UnmarshalListOfMaps(out.Items, &allFish); err != nil {
+		return nil, fmt.Errorf("unmarshal failed: %w", err)
+	}
+
+	// 2. Filter fish based on hemisphere/month/time
+	var availableFish []models.Fish
+	for _, fish := range allFish {
+		var seasons []models.SeasonalAvailability
+		if hemisphere == "north" {
+			seasons = fish.NorthAvailability
+		} else {
+			seasons = fish.SouthAvailability
+		}
+
+		if isFishAvailable(seasons, month, hour) {
+			availableFish = append(availableFish, fish)
+		}
+	}
+
+	return availableFish, nil
 }

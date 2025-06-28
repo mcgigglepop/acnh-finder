@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/mcgigglepop/acnh-finder/server/internal/config"
@@ -74,6 +76,8 @@ func (m *Repository) DashboardGet(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	m.App.Session.Put(r.Context(), "user_hemisphere", user.Hemisphere)
+
 	render.Template(w, r, "dashboard.page.tmpl", &models.TemplateData{})
 }
 
@@ -97,6 +101,47 @@ func (m *Repository) ChooseHemisphereGet(w http.ResponseWriter, r *http.Request)
 			"Hemisphere": user.Hemisphere,
 		},
 	})
+}
+
+func (m *Repository) FishDashboardGet(w http.ResponseWriter, r *http.Request) {
+	// Get the user_id (Cognito sub) from session
+	userHemisphere := m.App.Session.GetString(r.Context(), "user_hemisphere")
+	if userHemisphere == "" {
+		http.Redirect(w, r, "/choose-hemisphere", http.StatusSeeOther)
+		return
+	}
+
+	render.Template(w, r, "fish-dashboard.page.tmpl", &models.TemplateData{
+		Data: map[string]interface{}{
+			"Hemisphere": userHemisphere,
+		},
+	})
+}
+
+func (m *Repository) GetAvailableFish(w http.ResponseWriter, r *http.Request) {
+	// Get the user_id (Cognito sub) from session
+	userHemisphere := m.App.Session.GetString(r.Context(), "user_hemisphere")
+	if userHemisphere == "" {
+		http.Redirect(w, r, "/choose-hemisphere", http.StatusSeeOther)
+		return
+	}
+
+	monthStr := r.URL.Query().Get("month")
+	timeStr := r.URL.Query().Get("time")
+
+	month, err := strconv.Atoi(monthStr)
+	if err != nil || month < 1 || month > 12 {
+		http.Error(w, "invalid month", http.StatusBadRequest)
+		return
+	}
+
+	fish, err := m.App.Dynamo.Fish.ListAvailableFish(r.Context(), month, timeStr, userHemisphere)
+	if err != nil {
+		http.Error(w, "error filtering fish", http.StatusInternalServerError)
+		return
+	}
+
+	json.NewEncoder(w).Encode(fish)
 }
 
 //////////////////////////////////////////////////////////////

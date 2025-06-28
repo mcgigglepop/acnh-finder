@@ -1504,7 +1504,7 @@ func main() {
 			Icon:       "/static/images/fish/icons/sea-bass.png",
 			SellPrice:  400,
 			ShadowSize: "Very Large",
-			ShadowIcon: "/static/images/fish/icons/very-large.png",
+			ShadowIcon: "/static/images/fish/icons/shadow-very-large.png",
 			Location:   "Sea",
 			NorthAvailability: []models.SeasonalAvailability{
 				{
