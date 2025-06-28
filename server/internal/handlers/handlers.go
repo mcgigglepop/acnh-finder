@@ -332,3 +332,41 @@ func (m *Repository) ChooseHemispherePost(w http.ResponseWriter, r *http.Request
 	m.App.Session.Put(r.Context(), "flash", "hemisphere confirmed")
 	http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
 }
+
+func (m *Repository) UpdateUserFish(w http.ResponseWriter, r *http.Request) {
+	userID := m.App.Session.GetString(r.Context(), "user_id")
+	if userID == "" {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	var payload struct {
+		FishID string `json:"fish_id"`
+		Caught bool   `json:"caught"`
+	}
+
+	if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
+		http.Error(w, "invalid payload", http.StatusBadRequest)
+		return
+	}
+
+	if payload.FishID == "" {
+		http.Error(w, "missing fish_id", http.StatusBadRequest)
+		return
+	}
+
+	var err error
+	if payload.Caught {
+		err = m.App.Dynamo.UserFish.PutCaughtFish(r.Context(), userID, payload.FishID)
+	} else {
+		err = m.App.Dynamo.UserFish.DeleteCaughtFish(r.Context(), userID, payload.FishID)
+	}
+
+	if err != nil {
+		log.Printf("Failed to update userfish: %v", err)
+		http.Error(w, "internal error", http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+}

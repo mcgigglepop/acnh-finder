@@ -2298,19 +2298,7 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
         <div
           class="d-grid d-sm-flex justify-content-md-end align-items-sm-center gap-2"
         >
-          <!-- Datatable Info -->
-          <div id="datatableCounterInfo" style="display: none">
-            <div class="d-flex align-items-center">
-              <span class="fs-5 me-3">
-                <span id="datatableCounter">0</span>
-                Selected
-              </span>
-              <a class="btn btn-outline-danger btn-sm" href="javascript:;">
-                <i class="bi-trash"></i> Delete
-              </a>
-            </div>
-          </div>
-          <!-- End Datatable Info -->
+
 
           <div class="col-sm-auto d-flex gap-2 align-items-center">
             <div>
@@ -6267,6 +6255,36 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
 
       // Redraw table
       datatable.draw();
+
+      setTimeout(() => {
+        document.querySelectorAll('.catch-toggle').forEach(box => {
+          box.addEventListener('change', async (e) => {
+            const fishId = e.target.dataset.fishId;
+            const isCaught = e.target.checked;
+            console.log(e.target.dataset.fishId)
+            console.log(e.target.checked)
+            try {
+              const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+              const res = await fetch('/fish/userfish', {
+                method: 'POST',
+                headers: { 
+                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': csrfToken
+                 },
+                body: JSON.stringify({ fish_id: fishId, caught: isCaught }),
+              });
+
+              if (!res.ok) {
+                throw new Error('Server error');
+              }
+            } catch (err) {
+              alert('Error updating caught status');
+              e.target.checked = !isCaught; // rollback
+            }
+          });
+        });
+      }, 0);
+
     }
 
     // Initial fetch

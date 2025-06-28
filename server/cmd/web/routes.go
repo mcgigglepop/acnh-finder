@@ -37,6 +37,9 @@ func routes(app *config.AppConfig) http.Handler {
 		mux.Get("/dashboard", handlers.Repo.FishDashboardGet)
 		// New JSON API to fetch filtered fish
 		mux.Get("/available", handlers.Repo.GetAvailableFish)
+
+		// single endpoint to handle insert/delete
+		mux.Post("/userfish", handlers.Repo.UpdateUserFish)
 	})
 
 	fileServer := http.FileServer(http.Dir("./static/"))

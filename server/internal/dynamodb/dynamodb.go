@@ -179,3 +179,40 @@ func (c *DDBClient) ListAvailableFish(ctx context.Context, userID string, month 
 
 	return availableFish, nil
 }
+
+func (c *DDBClient) PutCaughtFish(ctx context.Context, userID, fishID string) error {
+	item := map[string]types.AttributeValue{
+		"PK":     &types.AttributeValueMemberS{Value: fmt.Sprintf("USER#%s", userID)},
+		"SK":     &types.AttributeValueMemberS{Value: fmt.Sprintf("FISH#%s", fishID)},
+		"user_id": &types.AttributeValueMemberS{Value: userID},
+		"fish_id": &types.AttributeValueMemberS{Value: fishID},
+		"caught":  &types.AttributeValueMemberBOOL{Value: true},
+	}
+
+	_, err := c.db.PutItem(ctx, &sdkdynamodb.PutItemInput{
+		TableName: aws.String("UserFish"),
+		Item:      item,
+	})
+
+	if err != nil {
+		return fmt.Errorf("PutItem failed: %w", err)
+	}
+	return nil
+}
+
+func (c *DDBClient) DeleteCaughtFish(ctx context.Context, userID, fishID string) error {
+	key := map[string]types.AttributeValue{
+		"PK": &types.AttributeValueMemberS{Value: fmt.Sprintf("USER#%s", userID)},
+		"SK": &types.AttributeValueMemberS{Value: fmt.Sprintf("FISH#%s", fishID)},
+	}
+
+	_, err := c.db.DeleteItem(ctx, &sdkdynamodb.DeleteItemInput{
+		TableName: aws.String(c.tableName),
+		Key:       key,
+	})
+	if err != nil {
+		return fmt.Errorf("DeleteItem failed: %w", err)
+	}
+	return nil
+}
+
