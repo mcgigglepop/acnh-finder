@@ -216,3 +216,20 @@ func (c *DDBClient) DeleteCaughtFish(ctx context.Context, userID, fishID string)
 	return nil
 }
 
+func (c *DDBClient) CountCaughtFish(ctx context.Context, userID string) (int, error) {
+	pk := fmt.Sprintf("USER#%s", userID)
+
+	out, err := c.db.Query(ctx, &sdkdynamodb.QueryInput{
+		TableName:              aws.String(c.tableName),
+		KeyConditionExpression: aws.String("PK = :pk"),
+		ExpressionAttributeValues: map[string]types.AttributeValue{
+			":pk": &types.AttributeValueMemberS{Value: pk},
+		},
+		Select: types.SelectCount, // 💡 Just return the count, no item data
+	})
+	if err != nil {
+		return 0, fmt.Errorf("failed to count caught fish: %w", err)
+	}
+
+	return int(out.Count), nil
+}

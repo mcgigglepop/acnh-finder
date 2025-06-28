@@ -119,14 +119,13 @@ func (m *Repository) FishDashboardGet(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) GetAvailableFish(w http.ResponseWriter, r *http.Request) {
-	// Get the user_id (Cognito sub) from session
 	userHemisphere := m.App.Session.GetString(r.Context(), "user_hemisphere")
 	if userHemisphere == "" {
 		http.Redirect(w, r, "/choose-hemisphere", http.StatusSeeOther)
 		return
 	}
 
-	userID := m.App.Session.GetString(r.Context(), "user_id") // should be set during auth
+	userID := m.App.Session.GetString(r.Context(), "user_id")
 	if userID == "" {
 		http.Error(w, "unauthorized", http.StatusUnauthorized)
 		return
@@ -141,6 +140,7 @@ func (m *Repository) GetAvailableFish(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Get available fish based on filters
 	fish, err := m.App.Dynamo.Fish.ListAvailableFish(r.Context(), userID, month, timeStr, userHemisphere)
 	if err != nil {
 		log.Printf("failed to list available fish: %v", err)
@@ -148,8 +148,26 @@ func (m *Repository) GetAvailableFish(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	json.NewEncoder(w).Encode(fish)
+	// Count how many fish has caught
+	count, err := m.App.Dynamo.UserFish.CountCaughtFish(r.Context(), userID)
+	if err != nil {
+		log.Printf("failed to count caught fish: %v", err)
+		http.Error(w, "internal server error", http.StatusInternalServerError)
+		return
+	}
+
+	// Wrap in a response object so frontend can use both fish + count
+	response := struct {
+		Fish        []models.Fish `json:"fish"`
+		CaughtCount int           `json:"caught_count"`
+	}{
+		Fish:        fish,
+		CaughtCount: count,
+	}
+
+	json.NewEncoder(w).Encode(response)
 }
+
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
