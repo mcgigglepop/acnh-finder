@@ -31,20 +31,21 @@ resource "aws_dynamodb_table" "fish" {
 resource "aws_dynamodb_table" "user_fish" {
   name           = "UserFish"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "user_id"
-  range_key      = "fish_id"
+  hash_key       = "PK"
+  range_key      = "SK"
 
   attribute {
-    name = "user_id"
+    name = "PK"
     type = "S"
   }
 
   attribute {
-    name = "fish_id"
+    name = "SK"
     type = "S"
   }
 
   tags = {
-    Name = "UserFish"
+    Name        = "UserFish"
   }
 }
+
