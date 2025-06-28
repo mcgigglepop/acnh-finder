@@ -15,6 +15,7 @@ type Fish struct {
 	Location          string                 `dynamodbav:"location"`
 	NorthAvailability []SeasonalAvailability `dynamodbav:"north_availability"`
 	SouthAvailability []SeasonalAvailability `dynamodbav:"south_availability"`
+	Caught            bool                   `json:"Caught"` 
 }
 
 type UserFish struct {

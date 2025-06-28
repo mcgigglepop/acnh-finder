@@ -6206,11 +6206,19 @@ navbar-vertical-aside-show-xl footer-offset{{end}}{{define "css"}}
 
         const availabilityDisplay = renderAvailabilityDisplay(availability);
 
+        const caught = fish.Caught ? 'checked' : '';
+
         datatable.row.add([
           `
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="datatableCheckAll1">
-            <label class="form-check-label" for="datatableCheckAll1"></label>
+            <input 
+              class="form-check-input catch-toggle" 
+              type="checkbox" 
+              data-fish-id="${fish.FishID}" 
+              id="catchCheck-${fish.FishID}" 
+              ${caught}
+            >
+            <label class="form-check-label" for="catchCheck-${fish.FishID}"></label>
           </div>
         `,
 

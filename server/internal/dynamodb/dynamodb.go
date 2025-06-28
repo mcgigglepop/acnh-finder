@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -106,8 +107,41 @@ func isFishAvailable(seasons []models.SeasonalAvailability, month int, hour stri
 	return false
 }
 
-func (c *DDBClient) ListAvailableFish(ctx context.Context, month int, hour string, hemisphere string) ([]models.Fish, error) {
-	// 1. Scan all fish (yes, it’s a scan — live with it unless you cache)
+func (c *DDBClient) getUserCaughtFishMap(ctx context.Context, userID string) (map[string]bool, error) {
+	out, err := c.db.Query(ctx, &sdkdynamodb.QueryInput{
+		TableName:              aws.String("UserFish"),
+		KeyConditionExpression: aws.String("PK = :pk"),
+		ExpressionAttributeValues: map[string]types.AttributeValue{
+			":pk": &types.AttributeValueMemberS{Value: fmt.Sprintf("USER#%s", userID)},
+		},
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	caughtMap := make(map[string]bool)
+	for _, item := range out.Items {
+		var record struct {
+			SK     string `dynamodbav:"SK"`
+			Caught bool   `dynamodbav:"Caught"`
+		}
+		if err := attributevalue.UnmarshalMap(item, &record); err != nil {
+			return nil, err
+		}
+
+		// Extract fish ID from SK like "FISH#abc123"
+		parts := strings.Split(record.SK, "#")
+		if len(parts) == 2 {
+			fishID := parts[1]
+			caughtMap[fishID] = record.Caught
+		}
+	}
+
+	return caughtMap, nil
+}
+
+func (c *DDBClient) ListAvailableFish(ctx context.Context, userID string, month int, hour string, hemisphere string) ([]models.Fish, error) {
+	// 1. Scan all fish 
 	out, err := c.db.Scan(ctx, &sdkdynamodb.ScanInput{
 		TableName: aws.String(c.tableName),
 	})
@@ -120,7 +154,13 @@ func (c *DDBClient) ListAvailableFish(ctx context.Context, month int, hour strin
 		return nil, fmt.Errorf("unmarshal failed: %w", err)
 	}
 
-	// 2. Filter fish based on hemisphere/month/time
+	// 2. Fetch user caught fish map
+	userCaughtMap, err := c.getUserCaughtFishMap(ctx, userID)
+	if err != nil {
+		return nil, fmt.Errorf("failed to fetch caught fish map: %w", err)
+	}
+
+	// 3. Filter and merge
 	var availableFish []models.Fish
 	for _, fish := range allFish {
 		var seasons []models.SeasonalAvailability
@@ -131,6 +171,8 @@ func (c *DDBClient) ListAvailableFish(ctx context.Context, month int, hour strin
 		}
 
 		if isFishAvailable(seasons, month, hour) {
+			// Check if user caught this fish
+			fish.Caught = userCaughtMap[fish.FishID]
 			availableFish = append(availableFish, fish)
 		}
 	}

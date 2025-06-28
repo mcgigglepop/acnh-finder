@@ -126,6 +126,12 @@ func (m *Repository) GetAvailableFish(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	userID := m.App.Session.GetString(r.Context(), "user_id") // should be set during auth
+	if userID == "" {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+
 	monthStr := r.URL.Query().Get("month")
 	timeStr := r.URL.Query().Get("time")
 
@@ -135,9 +141,10 @@ func (m *Repository) GetAvailableFish(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fish, err := m.App.Dynamo.Fish.ListAvailableFish(r.Context(), month, timeStr, userHemisphere)
+	fish, err := m.App.Dynamo.Fish.ListAvailableFish(r.Context(), userID, month, timeStr, userHemisphere)
 	if err != nil {
-		http.Error(w, "error filtering fish", http.StatusInternalServerError)
+		log.Printf("failed to list available fish: %v", err)
+		http.Error(w, "internal server error", http.StatusInternalServerError)
 		return
 	}
 

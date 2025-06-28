@@ -12,6 +12,7 @@ import (
 type DynamoService struct {
 	UserProfile *dynamodb.DDBClient
 	Fish        *dynamodb.DDBClient
+	UserFish        *dynamodb.DDBClient
 }
 
 // AppConfig holds the application config
